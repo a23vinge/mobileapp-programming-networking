@@ -16,10 +16,7 @@ public class RecyclerViewItem {
         return title;
     }
 
-    ArrayList<RecyclerViewItem> items = new ArrayList<>(Arrays.asList(
-            new RecyclerViewItem("Mountain")
 
-    ));
 }
 
 
