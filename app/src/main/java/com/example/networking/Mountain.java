@@ -1,5 +1,9 @@
 package com.example.networking;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Mountain {
     private String name;
     private String location;
@@ -17,8 +21,9 @@ public class Mountain {
         height=h;
     }
 
-    public Mountain(String berf) {
+    public Mountain(String name) {
     }
+
 
     public String information() {
         String tmp=new String();
@@ -38,8 +43,4 @@ public class Mountain {
         return name;
     }
 }
-
-
-
-
 
