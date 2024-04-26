@@ -1,5 +1,7 @@
 package com.example.networking;
 
+import androidx.annotation.NonNull;
+
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +24,7 @@ public class Mountain {
     }
 
     public Mountain(String name) {
+        this.name = name;
     }
 
 
@@ -39,6 +42,7 @@ public class Mountain {
         return name;
     }
     @Override
+    @NonNull
     public String toString() {
         return name;
     }

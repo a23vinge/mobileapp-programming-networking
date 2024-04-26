@@ -12,6 +12,8 @@ public class RecyclerViewItem {
         this.title = title;
     }
 
+
+
     public String getTitle() {
         return title;
     }
