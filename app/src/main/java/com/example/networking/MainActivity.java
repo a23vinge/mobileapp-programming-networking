@@ -9,8 +9,16 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+
+
+
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener  {
@@ -26,8 +34,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     private RecyclerViewAdapter adapter;
 
+    private Gson gson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -56,7 +66,14 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
+        Log.d("MainActivity","" + json);
+
+        Type type = new TypeToken<List<Mountain>>() {}.getType();
+items = gson.fromJson(json, type);
+for (Mountain m : items) {
+    recyclerViewItems.add(new RecyclerViewItem(m.getName()));
+
+        }
     }
 
 }
