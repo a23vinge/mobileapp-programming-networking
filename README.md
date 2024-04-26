@@ -7,33 +7,45 @@ _Du kan ta bort all text som finns sedan tidigare_.
 
 ## Följande grundsyn gäller dugga-svar:
 
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
 
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
-
+1. Adderade mountain names i array
+2. Jag skapade en loop för att recycleview ska fungera
+3. adderade Json url och json file 
+4. skapade en post execute så att Json så att Json fungerar och google adderade jag som import för att få den att fungera
+5. adderad wifi också
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+ items.add(new Mountain("Berf"));
+        items.add(new Mountain("Neft"));
+        items.add(new Mountain("Gurt"));
+        
+        
+           for (int i =0;i<items.size();i++) {
+            Log.d("Vinge", "" + items.get(i).toString());
+            recyclerViewItems.add(new RecyclerViewItem(items.get(i).toString()));
+        }
+        
+        import androidx.annotation.NonNull;
+        
+        
+    private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
+    private final String JSON_FILE = "mountains.json";
+    
+    
+     public void onPostExecute(String json) {
+        Log.d("MainActivity","" + json);
+
+        Type type = new TypeToken<List<Mountain>>() {}.getType();
+items = gson.fromJson(json, type);
+for (Mountain m : items) {
+    recyclerViewItems.add(new RecyclerViewItem(m.getName()));
+    
+     <uses-permission android:name="android.permission.INTERNET" />
+
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](Screenshot_20240426_174145)
 
 Läs gärna:
 

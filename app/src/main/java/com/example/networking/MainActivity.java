@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             recyclerViewItems.add(new RecyclerViewItem(items.get(i).toString()));
         }
 
+
+
         adapter = new RecyclerViewAdapter(this, recyclerViewItems, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(RecyclerViewItem item) {
