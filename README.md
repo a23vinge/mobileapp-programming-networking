@@ -45,7 +45,7 @@ for (Mountain m : items) {
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](Screenshot_20240503_095120.png)
+![](bilden.png)
 
 Läs gärna:
 
