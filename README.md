@@ -13,6 +13,7 @@ _Du kan ta bort all text som finns sedan tidigare_.
 3. adderade Json url och json file 
 4. skapade en post execute så att Json så att Json fungerar och google adderade jag som import för att få den att fungera
 5. adderad wifi också
+6. Adderade en funktion jag råkade ta bort och la till gson
 ```
  items.add(new Mountain("Berf"));
         items.add(new Mountain("Neft"));
@@ -40,12 +41,18 @@ for (Mountain m : items) {
     recyclerViewItems.add(new RecyclerViewItem(m.getName()));
     
      <uses-permission android:name="android.permission.INTERNET" />
+     
+     
+     6.    new JsonFile(this, this).execute(JSON_FILE); 
+     gson = new Gson();
+     
+     
 
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](bilden.png)
+![](image.png)
 
 Läs gärna:
 

@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         items.add(new Mountain("Neft"));
         items.add(new Mountain("Gurt"));
 
+        new JsonFile(this, this).execute(JSON_FILE);
+
+
         for (int i =0;i<items.size();i++) {
             Log.d("Vinge", "" + items.get(i).toString());
             recyclerViewItems.add(new RecyclerViewItem(items.get(i).toString()));
@@ -68,13 +71,14 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
+        gson = new Gson();
+
         Log.d("MainActivity","" + json);
 
         Type type = new TypeToken<List<Mountain>>() {}.getType();
-items = gson.fromJson(json, type);
-for (Mountain m : items) {
-    recyclerViewItems.add(new RecyclerViewItem(m.getName()));
-
+        items = gson.fromJson(json, type);
+        for (Mountain m : items) {
+            recyclerViewItems.add(new RecyclerViewItem(m.getName()));
         }
     }
 
